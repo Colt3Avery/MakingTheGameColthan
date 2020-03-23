@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
     public float forceMultiplier;
     public float gravityMultiplier;
     public bool onGround = true;
-    // Start is called before the first frame update
+    
+
+   
     void Start()
     {
        playerRigidBody = GetComponent<Rigidbody>();
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    private void onCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         onGround = true;
     }
