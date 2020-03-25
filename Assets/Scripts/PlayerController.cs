@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
     public float forceMultiplier;
     public float gravityMultiplier;
     public bool onGround = true;
+    public bool gameOver = false;
     
 
-   
     void Start()
     {
        playerRigidBody = GetComponent<Rigidbody>();
@@ -30,6 +30,17 @@ public class PlayerController : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        onGround = true;
+        // Game over if player hits obsticle. (set onGroundstate to true if we hit ground)
+        if (collision.gameObject.CompareTag("Obsticale"))
+        {
+            gameOver = true;
+            Debug.Log("Game Over");
+        }
+        else if (collision.gameObject.CompareTag("Ground"))
+        {
+            onGround = true;
+        }
     }
 }
+
+    
